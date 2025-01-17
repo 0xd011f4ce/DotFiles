@@ -1,7 +1,10 @@
 ;; theme
-(use-package material-theme
+(use-package doom-themes
+	:ensure t
 	:config
-	(load-theme 'material t))
+	(setq doom-themes-enable-bold t
+				doom-themes-enable-italic t)
+	(load-theme 'doom-one-light t))
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters

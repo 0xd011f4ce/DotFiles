@@ -1,9 +1,16 @@
-(use-package org-modern
-	:after org
+(use-package org-bullets
 	:config
-	(global-org-modern-mode))
+	(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-(setq org-hide-emphasis-markers t)
+(setq org-hide-emphasis-markers t
+			org-pretty-entities t
+			org-agenda-tags-column 0
+
+			org-auto-align-tags nil
+			org-tags-column 0
+			org-catch-invisible-edits 'show-and-error
+
+			org-ellipsis "…")
 
 (font-lock-add-keywords 'org-mode
 												'(("^ *\\([-]\\) "
@@ -26,5 +33,7 @@
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
+
+(set-frame-font "JetBrains Mono 12" nil t)
 
 (provide 'setup-org)

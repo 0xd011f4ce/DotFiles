@@ -33,7 +33,8 @@
 (use-package projectile
 	:config
 	(projectile-mode +1)
-	(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+	(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+	(setq projectile-indexing-method 'hybrid))
 
 ;; hydra
 (use-package hydra)
@@ -66,6 +67,7 @@
 					(lambda ()
 						(electric-pair-mode)
 						(display-line-numbers-mode)
+						(setq display-line-numbers 'relative)
 						(column-number-mode)))
 
 ;; C-a goes to the first non-whitespace character
