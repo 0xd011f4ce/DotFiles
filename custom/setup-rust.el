@@ -1,17 +1,21 @@
-;; (use-package rust-mode
-;;	:init
-;;	:hook ((rust-mode . lsp)))
+(use-package eglot
+	:ensure t)
 
-(use-package rustic
+(use-package flycheck
 	:ensure
-	:bind (:map rustic-mode-map
-							("M-j" . lsp-ui-imenu)
-							("M-?" . lsp-find-references)
-							("C-c C-c l" . flycheck-list-errors)
-							("C-c C-c a" . lsp-execute-code-action)
-							("C-c C-c r" . lsp-rename)
-							("C-c C-c q" . lsp-workspace-restart)
-							("C-c C-c Q" . lsp-workspace-shutdown)
-							("C-c C-c s" . lsp-rust-analyzer-status)))
+	:config
+	(global-flycheck-mode +1))
+
+(use-package rust-mode
+	:init
+	:hook ((rust-mode . eglot-ensure)))
+
+(use-package company
+	:ensure
+	:hook ((prog-mode-hook . company-mode)
+				 (rust-mode . company-mode))
+	:custom
+	(company-idle-delay 0.0)
+	(company-minimum-prefix-length 1))
 
 (provide 'setup-rust)

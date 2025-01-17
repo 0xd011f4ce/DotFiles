@@ -70,6 +70,10 @@
 						(setq display-line-numbers 'relative)
 						(column-number-mode)))
 
+;; magit
+(use-package magit
+	:ensure)
+
 ;; C-a goes to the first non-whitespace character
 (defun my/move-beginning-of-line ()
 	(interactive)
