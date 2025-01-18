@@ -33,4 +33,49 @@
 			keypression-combine-same-keystrokes t
 			keypression-font-face-attribute '(:width normal :height 200 :weight bold)))
 
+(use-package dashboard
+	:ensure t
+	:config
+	(setq dashboard-banner-logo-title "We are all connected"
+				dashboard-startup-banner 'logo
+				dashboard-center-content t
+				dashboard-show-shortcuts t
+				dashboard-set-navigator t
+				dashboard-set-heading-icons t
+				dashboard-set-file-icons t
+				initial-buffer-choice (lambda () (get-buffer "*dashboard*"))
+				dashboard-projects-switch-function 'projectile-switch-project-by-name
+
+				dashboard-items '((recents . 15)
+													(agenda . 10)
+													(projects . 10)))
+	(dashboard-setup-startup-hook)
+
+	:init
+	(add-hook 'after-init-hook 'dashboard-refresh-buffer))
+
+(use-package git-gutter-fringe
+	:hook ((prog-mode . git-gutter-mode)
+				 (org-mode . git-gutter-mode)
+				 (markdown-mode . git-gutter-mode)
+				 (latex-mode . git-gutter-mode)))
+
+(use-package ligature
+	:config
+	(ligature-set-ligatures 'prog-mode
+													'("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+														":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+														"!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+														"<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+														"<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+														"..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+														"~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+														"[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+														">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+														"<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+														"##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+														"?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+														"\\\\" "://"))
+	(global-ligature-mode t))
+
 (provide 'setup-appearance)

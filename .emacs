@@ -24,7 +24,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages
+	 '(avy company dashboard doom-modeline doom-themes flycheck
+				 git-gutter-fringe helm-xref hydra keypression ligature magit
+				 moody multiple-cursors org-bullets projectile
+				 rainbow-delimiters rust-mode which-key yasnippet-snippets)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
