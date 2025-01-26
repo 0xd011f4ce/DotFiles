@@ -61,4 +61,7 @@
 														"\\\\" "://"))
 	(global-ligature-mode t))
 
+(setq-default fill-column 80)
+(display-fill-column-indicator-mode 1)
+
 (provide 'setup-appearance)
