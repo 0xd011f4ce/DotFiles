@@ -22,17 +22,6 @@
 				:family "JetBrains Mono"
 				:height 95)
 
-(use-package keypression
-	:hook (prog-mode . keypression-mode)
-	:config
-	(setq keypression-use-child-frame nil
-			keypression-fade-out-delay 1.0
-			keypression-frame-justify 'keypression-left-justified
-			keypression-cast-command-name t
-			keypression-cast-command-name-format "%s	%s"
-			keypression-combine-same-keystrokes t
-			keypression-font-face-attribute '(:width normal :height 200 :weight bold)))
-
 (use-package dashboard
 	:ensure t
 	:config
@@ -53,12 +42,6 @@
 
 	:init
 	(add-hook 'after-init-hook 'dashboard-refresh-buffer))
-
-(use-package git-gutter-fringe
-	:hook ((prog-mode . git-gutter-mode)
-				 (org-mode . git-gutter-mode)
-				 (markdown-mode . git-gutter-mode)
-				 (latex-mode . git-gutter-mode)))
 
 (use-package ligature
 	:config

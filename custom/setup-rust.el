@@ -6,9 +6,16 @@
 	:config
 	(global-flycheck-mode +1))
 
-(use-package rust-mode
+;; (use-package rust-mode
+;;	:init
+;;	:hook ((rust-mode . eglot-ensure)))
+
+(use-package rustic
+	:ensure t
 	:init
-	:hook ((rust-mode . eglot-ensure)))
+	:config
+	(setq rustic-lsp-client 'eglot)
+	:hook ((rustic-mode . eglot-ensure)))
 
 (use-package company
 	:ensure
