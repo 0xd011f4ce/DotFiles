@@ -1,0 +1,11 @@
+#!/bin/bash
+status ()
+{
+	RAM=$(awk '/MemFree/ { printf "%.3f", $2/1024/1024 }' /proc/meminfo)
+	echo -n "Free RAM: $RAM | $(date '+%Y-%m-%d %H:%M:%S')"
+}
+
+while :; do
+			xsetroot -name "$(status)"
+			sleep 1
+done
