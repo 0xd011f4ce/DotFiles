@@ -10,6 +10,12 @@
 (use-package rainbow-delimiters
 	:hook (prog-mode . rainbow-delimiters-mode))
 
+;; theme
+(use-package tomorrow-night-deepblue-theme
+	:ensure t
+	:config
+	(load-theme 'tomorrow-night-deepblue t))
+
 ;; moody
 (use-package moody
 	:config
@@ -17,10 +23,6 @@
 	(moody-replace-mode-line-buffer-identification)
 	(moody-replace-vc-mode)
 	(moody-replace-eldoc-minibuffer-message-function))
-
-(set-face-attribute 'default nil
-				:family "JetBrains Mono"
-				:height 95)
 
 (use-package dashboard
 	:ensure t
@@ -42,6 +44,12 @@
 
 	:init
 	(add-hook 'after-init-hook 'dashboard-refresh-buffer))
+
+(use-package git-gutter-fringe
+	:hook ((prog-mode . git-gutter-mode)
+				 (org-mode . git-gutter-mode)
+				 (markdown-mode . git-gutter-mode)
+				 (latex-mode . git-gutter-mode)))
 
 (use-package ligature
 	:config

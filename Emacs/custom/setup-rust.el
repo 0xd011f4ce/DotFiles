@@ -19,8 +19,8 @@
 
 (use-package company
 	:ensure
-	:hook ((prog-mode-hook . company-mode)
-				 (rust-mode . company-mode))
+	:init
+	(add-hook 'prog-mode-hook #'company-mode)
 	:custom
 	(company-idle-delay 0.0)
 	(company-minimum-prefix-length 1))

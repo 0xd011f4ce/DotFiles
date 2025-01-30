@@ -1,6 +1,8 @@
 (use-package org-bullets
 	:config
-	(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+	(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+	:custom
+	(org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 (setq org-hide-emphasis-markers t
 			org-pretty-entities t
@@ -18,6 +20,7 @@
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook 'org-mode-hook 'visual-line-mode)
+(add-hook 'org-mode-hook 'org-indent-mode)
 
 (custom-theme-set-faces
  'user
@@ -33,7 +36,5 @@
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
-
-(set-frame-font "JetBrains Mono 12" nil t)
 
 (provide 'setup-org)

@@ -1,4 +1,6 @@
 (menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 (setq gc-cons-threshold (* 100 1024 1024)
 			read-process-output-max (* 1024 1024)
@@ -55,6 +57,12 @@
 (use-package multiple-cursors
 	:bind (("C-c f" . mc/mark-next-like-this)
 				 ("C-c b" . mc/mark-previous-like-this)))
+
+;; texfrag
+(use-package texfrag
+	:ensure t
+	:config
+	(texfrag-global-mode 1))
 
 ;; which-key
 (use-package which-key
