@@ -11,10 +11,14 @@
 	:hook (prog-mode . rainbow-delimiters-mode))
 
 ;; theme
-(use-package tomorrow-night-deepblue-theme
+(use-package doom-themes
 	:ensure t
 	:config
-	(load-theme 'tomorrow-night-deepblue t))
+	(setq doom-themes-enable-bold t
+				doom-themes-enable-italic t)
+	(load-theme 'doom-one-light t)
+
+	(doom-themes-org-config))
 
 ;; moody
 (use-package moody
