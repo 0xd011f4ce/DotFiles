@@ -89,9 +89,26 @@
 
 (global-set-key (kbd "C-a") 'my/move-beginning-of-line)
 
-;; eglot,flycheck and company
-(use-package eglot
-	:ensure t)
+;; lsp,flycheck and company
+(use-package lsp-mode
+	:ensure t
+	:init
+	(add-hook 'prog-mode-hook 'lsp-deferred))
+
+(use-package lsp-ui
+	:ensure t
+	:after lsp-mode
+	:custom
+	(setq lsp-ui-sideline-show-diagnostics t
+				lsp-ui-sideline-show-hover t
+				lsp-ui-sideline-show-code-actions t
+				lsp-ui-sideline-update-mode 'point
+				lsp-ui-sideline-delay 0.1
+				lsp-ui-peek-enable t
+				lsp-ui-doc-show-with-cursor t)
+	:custom
+	(define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+	(define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
 
 (use-package flycheck
 	:ensure
