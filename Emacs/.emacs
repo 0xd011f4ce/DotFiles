@@ -18,4 +18,4 @@
 (require 'setup-org)
 (require 'setup-appearance)
 (require 'setup-c)
-(require 'setup-rust)
+(require 'setup-emms)
