@@ -93,7 +93,7 @@
 (use-package lsp-mode
 	:ensure t
 	:init
-	(add-hook 'prog-mode-hook 'lsp-deferred))
+	(add-hook 'c-mode-hook 'lsp-deferred))
 
 (use-package lsp-ui
 	:ensure t
@@ -122,5 +122,8 @@
 	:custom
 	(company-idle-delay 0.0)
 	(company-minimum-prefix-length 1))
+
+;; this is the most annoying thing in the worlddddd
+(global-unset-key (kbd "C-z"))
 
 (provide 'setup-general)
