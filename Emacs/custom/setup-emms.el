@@ -1,9 +1,7 @@
 (use-package emms
 	:config
 	(require 'emms-setup)
-	(require 'emms-mpris)
 	(emms-all)
-	(emms-mpris-enable)
 	(setq emms-source-file-default-directory (expand-file-name "~/Music/")
 
 				emms-source-playlist-default-format 'm3u
@@ -15,6 +13,9 @@
 				emms-player-mpv-parameters '("--quiet" "--really-quiet" "--no-audio-display" "--force-window=no" "--vo=null" "--volume=30"))
 	:custom
 	(emms-browser-covers #'emms-browser-cache-thumbnail-async)
+	:init
+	(require 'emms-librefm-scrobbler)
+	(emms-librefm-scrobbler-enable)
 	:bind
 	(("C-c w m b" . emms-browser)
 	 ("C-c w m e" . emms)
