@@ -149,4 +149,10 @@
 (add-to-list 'org-modules 'org-habit)
 (setq org-habit-graph-column 60)
 
+;; org-babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+	 (C . t)))
+
 (provide 'setup-org)
