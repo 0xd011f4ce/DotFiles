@@ -17,8 +17,11 @@
 (defvaralias 'c-basic-offset 'tab-width)
 
 (defun tabify-before-save ()
-	(when (derived-mode-p 'prog-mode)
-		(tabify (point-min) (point-max))))
+	(cond
+	 ((derived-mode-p 'prog-mode)
+		(tabify (point-min) (point-max)))
+	 ((eq major-mode 'org-mode)
+		(untabify (point-min) (point-max)))))
 (add-hook 'before-save-hook #'tabify-before-save)
 
 ;; yasnippet
