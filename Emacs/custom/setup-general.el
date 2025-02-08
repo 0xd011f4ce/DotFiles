@@ -65,7 +65,7 @@
 (use-package texfrag
 	:ensure t
 	:config
-	(texfrag-global-mode 1))
+	(add-hook 'prog-mode-hook (lambda () (texfrag-mode))))
 
 ;; which-key
 (use-package which-key
