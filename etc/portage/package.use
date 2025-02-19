@@ -2,6 +2,11 @@ app-editors/emacs gtk games gui imagemagick png
 app-emacs/emacs-common games gui png
 sys-kernel/linux-firmware redistributable initramfs compress-xz
 media-libs/libpulse glib
-sys-apps/coreutils -hostname
+sys-apps/net-tools -hostname
 media-sound/pulseaudio ofono-headset
 media-sound/pulseaudio-daemon ofono-headset
+x11-libs/cairo glib
+media-libs/harfbuzz glib graphite
+dev-libs/glib introspection
+dev-libs/nettle gmp
+media-libs/portaudio cxx

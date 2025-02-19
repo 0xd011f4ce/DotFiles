@@ -19,3 +19,4 @@
 (require 'setup-appearance)
 (require 'setup-c)
 (require 'setup-emms)
+(require 'setup-web)
